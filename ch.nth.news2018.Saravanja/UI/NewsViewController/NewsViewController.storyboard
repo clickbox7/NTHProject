@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0cs-N8-scK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--News View Controller-->
+        <scene sceneID="B6B-6C-35G">
+            <objects>
+                <viewController storyboardIdentifier="NewsViewController" id="0cs-N8-scK" customClass="NewsViewController" customModule="ch_nth_news2018_Saravanja" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LZC-be-Ms6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-1O-qKE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FhJ-TL-HST" firstAttribute="bottom" secondItem="pxF-1O-qKE" secondAttribute="bottom" id="8Vt-iz-fx5"/>
+                            <constraint firstItem="FhJ-TL-HST" firstAttribute="trailing" secondItem="pxF-1O-qKE" secondAttribute="trailing" id="B6A-eD-uQf"/>
+                            <constraint firstItem="pxF-1O-qKE" firstAttribute="top" secondItem="FhJ-TL-HST" secondAttribute="top" id="eDh-4N-vfB"/>
+                            <constraint firstItem="pxF-1O-qKE" firstAttribute="leading" secondItem="FhJ-TL-HST" secondAttribute="leading" id="i4L-Ho-oYo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FhJ-TL-HST"/>
+                    </view>
+                    <connections>
+                        <outlet property="newsTableView" destination="pxF-1O-qKE" id="umU-N3-oDS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Xx-lt-f0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="104"/>
+        </scene>
+    </scenes>
+</document>
