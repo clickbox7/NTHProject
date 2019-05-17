@@ -26,7 +26,6 @@
 		E6907845228F08A100356A2B /* NewsDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6907844228F08A100356A2B /* NewsDetailsViewController.storyboard */; };
 		E6907847228F0A5F00356A2B /* NewsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6907846228F0A5F00356A2B /* NewsDetailsViewModel.swift */; };
 		E6907849228F0B4C00356A2B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6907848228F0B4C00356A2B /* Post.swift */; };
-		E690784D228F13BA00356A2B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E690784C228F13BA00356A2B /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +71,6 @@
 		E6907844228F08A100356A2B /* NewsDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsDetailsViewController.storyboard; sourceTree = "<group>"; };
 		E6907846228F0A5F00356A2B /* NewsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewModel.swift; sourceTree = "<group>"; };
 		E6907848228F0B4C00356A2B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		E690784C228F13BA00356A2B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +164,6 @@
 				E6907831228EF3EE00356A2B /* Models */,
 				E690782D228EF35A00356A2B /* NewsService.swift */,
 				E6907838228EFA8400356A2B /* ServiceFactory.swift */,
-				E690784C228F13BA00356A2B /* Coordinator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 				E6907849228F0B4C00356A2B /* Post.swift in Sources */,
 				E69077F6228EEF3000356A2B /* AppDelegate.swift in Sources */,
 				E6907835228EF51C00356A2B /* ApiPaths.swift in Sources */,
-				E690784D228F13BA00356A2B /* Coordinator.swift in Sources */,
 				E690783C228F016800356A2B /* NewsCellModel.swift in Sources */,
 				E6907847228F0A5F00356A2B /* NewsDetailsViewModel.swift in Sources */,
 				E6907839228EFA8400356A2B /* ServiceFactory.swift in Sources */,
