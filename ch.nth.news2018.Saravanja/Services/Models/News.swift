@@ -30,6 +30,14 @@ struct News: Codable {
     let publishedAt: String
     let content: String?
     
+    var date: Date?  {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let date = dateFormatter.date(from: publishedAt) else { return nil }
+        return date
+    }
+    
+    
     enum CodingKeys: String, CodingKey {
         case source
         case author
@@ -40,14 +48,16 @@ struct News: Codable {
         case publishedAt
         case content
     }
-}
-
-struct Source: Codable {
-    let id: String?
-    let name: String
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
+    
+    struct Source: Codable {
+        let id: String?
+        let name: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+        }
     }
+    
 }
