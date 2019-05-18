@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,12 +37,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-An-FWx">
+                        <rect key="frame" x="135" y="87" width="290" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="dXW-3z-IMi" secondAttribute="trailing" constant="20" id="1n9-XF-A2p"/>
                     <constraint firstItem="dXW-3z-IMi" firstAttribute="top" secondItem="pab-fr-Ak6" secondAttribute="top" constant="11" id="8Im-Fe-TU5"/>
                     <constraint firstItem="6NY-2e-0bi" firstAttribute="top" secondItem="dXW-3z-IMi" secondAttribute="bottom" constant="17" id="Aca-b3-vUt"/>
+                    <constraint firstItem="wTs-An-FWx" firstAttribute="leading" secondItem="8xD-El-zvX" secondAttribute="trailing" constant="19" id="BVq-TD-E36"/>
+                    <constraint firstItem="wTs-An-FWx" firstAttribute="top" secondItem="6NY-2e-0bi" secondAttribute="bottom" constant="17" id="K23-uK-pZ1"/>
+                    <constraint firstAttribute="bottom" secondItem="wTs-An-FWx" secondAttribute="bottom" constant="10.5" id="fGF-IN-3Fj"/>
                     <constraint firstAttribute="trailing" secondItem="6NY-2e-0bi" secondAttribute="trailing" constant="20" id="jxn-BQ-Xe9"/>
+                    <constraint firstAttribute="trailing" secondItem="wTs-An-FWx" secondAttribute="trailing" constant="20" id="n0j-k4-nCW"/>
                     <constraint firstItem="dXW-3z-IMi" firstAttribute="leading" secondItem="8xD-El-zvX" secondAttribute="trailing" constant="19" id="qEh-0W-akf"/>
                     <constraint firstItem="8xD-El-zvX" firstAttribute="leading" secondItem="pab-fr-Ak6" secondAttribute="leading" constant="16" id="rj9-jV-FH1"/>
                     <constraint firstItem="6NY-2e-0bi" firstAttribute="leading" secondItem="8xD-El-zvX" secondAttribute="trailing" constant="19" id="wEX-h3-etT"/>
@@ -50,8 +60,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="authorLabel" destination="6NY-2e-0bi" id="dA2-bQ-CXC"/>
                 <outlet property="cellImage" destination="8xD-El-zvX" id="rbR-0W-H4R"/>
-                <outlet property="timestampLabel" destination="6NY-2e-0bi" id="Q9D-sc-rQ9"/>
+                <outlet property="timestampLabel" destination="wTs-An-FWx" id="V2R-iX-6Sk"/>
                 <outlet property="titleLabel" destination="dXW-3z-IMi" id="E5Q-Qy-gAg"/>
             </connections>
             <point key="canvasLocation" x="247.19999999999999" y="104.7976011994003"/>

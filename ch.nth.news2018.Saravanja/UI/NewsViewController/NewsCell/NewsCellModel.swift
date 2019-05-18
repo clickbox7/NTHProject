@@ -10,7 +10,8 @@ import Foundation
 
 struct NewsCellModel {
     let title: String
-    let image: String
+    let author: String
+    let image: PlaceholderImage
     let timestamp: String
     
 }

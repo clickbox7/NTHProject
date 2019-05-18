@@ -14,14 +14,14 @@ enum ServiceResult<Value> {
 }
 
 protocol NewsServiceProtocol {
-    func fetchAll(completion: @escaping (ServiceResult<NewsResponse>) -> Void)
+    func fetchAll(_ type: NewsType, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void)
 }
 
 class NewsService: NewsServiceProtocol {
     
-    func fetchAll(completion: @escaping (ServiceResult<NewsResponse>) -> Void) {
+    func fetchAll(_ type: NewsType, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void) {
         
-        guard let url = URL(string: ApiPaths.newsApi) else { return }
+        guard let url = URL(string: ApiPaths.newsApi(type, page)) else { return }
         
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -37,11 +37,10 @@ class NewsService: NewsServiceProtocol {
             }
             
             let decoder = JSONDecoder()
-//            guard let decoded = try? decoder.decode(NewsResponse.self, from: recievedData) else {
-//                print("Unable to decode json")
-//                return completion(.failure)
-//            }
-            let decoded = try! decoder.decode(NewsResponse.self, from: recievedData)
+            guard let decoded = try? decoder.decode(NewsResponse.self, from: recievedData) else {
+                print("Unable to decode json")
+                return completion(.failure)
+            }
             completion(.success(decoded))
         }
         
@@ -49,4 +48,11 @@ class NewsService: NewsServiceProtocol {
         
     }
     
+}
+extension Data
+{
+    func toString() -> String?
+    {
+        return String(data: self, encoding: .utf8)
+    }
 }
