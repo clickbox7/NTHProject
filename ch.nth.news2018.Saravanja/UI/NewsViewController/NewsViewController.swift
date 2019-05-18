@@ -25,11 +25,13 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         addViewModel()
         createTableView()
-        title = "News"
+        title = "News".local
         addCallbacks()
         viewModel.loadData()
         addPullToRefresh()
         style()
+
+        
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
@@ -48,7 +50,7 @@ class NewsViewController: UIViewController {
     private func style() {
         segmentedControl.tintColor = .gray
         segmentedControl.backgroundColor = .white
-        segmentedControl.setTitle("News", forSegmentAt: 0)
+        segmentedControl.setTitle("News".local, forSegmentAt: 0)
         segmentedControl.setTitle("Top", forSegmentAt: 1)
         view.backgroundColor = .white
     }
