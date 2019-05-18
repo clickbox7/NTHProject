@@ -650,6 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z43D9C7B3C;
 				INFOPLIST_FILE = ch.nth.news2018.Saravanja/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z43D9C7B3C;
 				INFOPLIST_FILE = ch.nth.news2018.Saravanja/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
