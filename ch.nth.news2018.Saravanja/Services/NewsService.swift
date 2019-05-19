@@ -14,14 +14,14 @@ enum ServiceResult<Value> {
 }
 
 protocol NewsServiceProtocol {
-    func fetchAll(_ type: NewsType, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void)
+    func fetchAll(_ type: NewsType, _ sorted: NewsSorted, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void)
 }
 
 class NewsService: NewsServiceProtocol {
     
-    func fetchAll(_ type: NewsType, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void) {
+    func fetchAll(_ type: NewsType, _ sorted: NewsSorted, page: Int, completion: @escaping (ServiceResult<NewsResponse>) -> Void) {
         
-        guard let url = URL(string: ApiPaths.newsApi(type, page)) else { return }
+        guard let url = URL(string: ApiPaths.newsApi(type, sorted, page)) else { return }
         
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

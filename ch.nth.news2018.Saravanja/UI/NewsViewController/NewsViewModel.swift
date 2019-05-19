@@ -24,6 +24,20 @@ enum NewsType {
     }
 }
 
+enum NewsSorted {
+    case date
+    case popularity
+    
+    var apiPath: String {
+        switch self {
+        case .date:
+            return "sortBy=publishedAt"
+        case .popularity:
+            return "sortBy=popularity"
+        }
+    }
+}
+
 class NewsViewModel {
     
     enum Constants {
@@ -88,13 +102,13 @@ class NewsViewModel {
     private var isAllContentLoaded = false
     private var pageNumber = 1
     
-    func loadData(type: NewsType = .all) {
+    func loadData(type: NewsType = .all, sorted: NewsSorted = .date) {
         self.pageNumber = 1
         self.isAllContentLoaded = false
         self.loadMoreData(type: type)
     }
     
-    func loadMoreData(type: NewsType = .all) {
+    func loadMoreData(type: NewsType = .all, sorted: NewsSorted = .date) {
         guard !isAllContentLoaded else {
             return
         }
@@ -102,12 +116,12 @@ class NewsViewModel {
         self.loadData(type: type, page: self.pageNumber)
     }
     
-    private func loadData(type: NewsType = .all, page: Int) {
+    private func loadData(type: NewsType = .all, sorted: NewsSorted = .date, page: Int) {
         guard !isAllContentLoaded else {
             return
         }
         
-        self.newsService.fetchAll(type, page: page) { [weak self] result in
+        self.newsService.fetchAll(type, sorted, page: page) { [weak self] result in
             self?.handleNewsResult(result)
         }
         

@@ -39,18 +39,12 @@ struct News: Codable {
     
         }
     
-    var date: String {
+//    var date: String {
 //        let dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 //        guard let date = dateFormatter.date(from: publishedAt) else { return nil }
 //        return date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let date = dateFormatter.date(from: publishedAt)
-        //dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return  dateFormatter.string(from: date!)
-    }
+//    }
     
     
     enum CodingKeys: String, CodingKey {

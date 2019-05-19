@@ -38,7 +38,7 @@ class NewsViewController: UIViewController {
             viewModel.loadData()
         case 1:
             print("selected index 1")
-            viewModel.loadData(type: .top)
+            viewModel.loadData(type: .top, sorted: .popularity)
         default:
             break
             
@@ -63,7 +63,7 @@ class NewsViewController: UIViewController {
         case 0:
             viewModel.loadData()
         case 1:
-            viewModel.loadData(type: .top)
+            viewModel.loadData(type: .top, sorted: .popularity)
         default:
             break
         }
