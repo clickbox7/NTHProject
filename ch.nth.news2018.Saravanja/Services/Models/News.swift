@@ -10,8 +10,8 @@ import Foundation
 
 struct NewsResponse: Codable {
     let status: String
-    let totalResults: Int
-    let articles: [News]
+    let totalResults: Int?
+    let articles: [News]?
     
     enum CodingKeys: String, CodingKey {
         case status

@@ -130,12 +130,15 @@ class NewsViewModel {
     private func handleNewsResult(_ result: ServiceResult<NewsResponse>) {
         switch result {
         case let .success(items):
+            guard let articles = items.articles else { return }
             if self.pageNumber == 1 {
-                self.news = items.articles
+                self.news = articles
+                print(items.totalResults)
+                print(articles.count)
             } else {
-                self.news.append(contentsOf: items.articles)
+                self.news.append(contentsOf: articles)
             }
-            if items.articles.count < Constants.numberOfItemsPerPage {
+            if articles.count < Constants.numberOfItemsPerPage {
                 self.isAllContentLoaded = true
             } else {
                 self.pageNumber += 1
@@ -148,16 +151,16 @@ class NewsViewModel {
     
     func showFilterResults(keyword: String) {
         
-        ApiPaths.keyword = keyword
-        
-        if keyword.isEmpty {
+        if !keyword.isEmpty {
+            ApiPaths.keyword = keyword
+            loadData()
+        } else {
             ApiPaths.keyword = "bitcoin"
             loadData()
         }
-        loadData()
-       
+        
         
     }
-
+    
 }
 

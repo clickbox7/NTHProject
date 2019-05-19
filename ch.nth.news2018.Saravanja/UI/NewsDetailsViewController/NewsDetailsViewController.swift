@@ -42,7 +42,7 @@ class NewsDetailsViewController: UIViewController {
             postAuthor.text = data.author
             postTimestamp.text = data.timestamp
             postDescription.text = data.description
-            postUrl.text = "Link to original article: \(data.url)"
+            postUrl.text = data.url
             return
         }
         
@@ -68,6 +68,7 @@ class NewsDetailsViewController: UIViewController {
         postUrl.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         postUrl.numberOfLines = 0
         postUrl.isUserInteractionEnabled = true
+
         
     }
     

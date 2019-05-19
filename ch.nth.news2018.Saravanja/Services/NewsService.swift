@@ -36,11 +36,12 @@ class NewsService: NewsServiceProtocol {
                 return completion(.failure)
             }
             
-            let decoder = JSONDecoder()
+           let decoder = JSONDecoder()
             guard let decoded = try? decoder.decode(NewsResponse.self, from: recievedData) else {
                 print("Unable to decode json")
                 return completion(.failure)
             }
+            //let decoded = try! decoder.decode(NewsResponse.self, from: recievedData)
             completion(.success(decoded))
         }
         
@@ -49,10 +50,4 @@ class NewsService: NewsServiceProtocol {
     }
     
 }
-extension Data
-{
-    func toString() -> String?
-    {
-        return String(data: self, encoding: .utf8)
-    }
-}
+
