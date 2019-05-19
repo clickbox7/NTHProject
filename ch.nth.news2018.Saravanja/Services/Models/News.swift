@@ -30,14 +30,6 @@ struct News: Codable {
     let publishedAt: String
     let content: String?
     
-        func convertDateFormatter(_ date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
-        let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return  dateFormatter.string(from: date!)
-    
-        }
     
 //    var date: String {
 //        let dateFormatter = DateFormatter()

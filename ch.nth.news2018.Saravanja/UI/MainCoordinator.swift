@@ -15,7 +15,6 @@ class MainCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     func start() -> UIViewController {
-        
         rootViewController.viewControllers = [createNews()]
         rootViewController.showAsRoot()
         return rootViewController

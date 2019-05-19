@@ -130,7 +130,8 @@ class NewsViewModel {
     private func handleNewsResult(_ result: ServiceResult<NewsResponse>) {
         switch result {
         case let .success(items):
-            guard let articles = items.articles else { return }
+            let nonNilArticles = items.articles?.compactMap{ $0 }
+            guard let articles = nonNilArticles else { return }
             if self.pageNumber == 1 {
                 self.news = articles
                 print(items.totalResults)
@@ -153,10 +154,10 @@ class NewsViewModel {
         
         if !keyword.isEmpty {
             ApiPaths.keyword = keyword
-            loadData()
+            self.loadData()
         } else {
             ApiPaths.keyword = "bitcoin"
-            loadData()
+            self.loadData()
         }
         
         

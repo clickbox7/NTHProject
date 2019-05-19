@@ -133,17 +133,25 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension NewsViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//
+//        guard let keyword = searchBar.text else { return }
+//
+//        viewModel.showFilterResults(keyword: keyword)
+//        newsTableView.reloadData()
+//
+//
+//    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text else { return }
-
+        
         viewModel.showFilterResults(keyword: keyword)
         newsTableView.reloadData()
-
-
     }
     
-    
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(123)
+    }
 }

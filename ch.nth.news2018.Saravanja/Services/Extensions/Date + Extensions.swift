@@ -14,5 +14,10 @@ extension Date {
         let dateFormatter = DateFormatter()
         return dateFormatter.string(from: self)
 }
+    
+    func timeAgoDisplay(date: Date) -> String {
+        
+        return ""
+    }
 
 }
