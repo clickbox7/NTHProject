@@ -68,7 +68,6 @@ class NewsDetailsViewController: UIViewController {
         postUrl.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         postUrl.numberOfLines = 0
         postUrl.isUserInteractionEnabled = true
-
         
     }
     
