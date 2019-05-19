@@ -24,7 +24,6 @@ class NewsCoordinator: Coordinator {
         newsViewController.viewModel = newsViewModel
         
         newsViewModel.onGoToDetails = { [weak self] item in
-            print(123)
             guard let vc = self?.createNewsDetails(item: item) else { return }
             self?.parentCoordinator?.rootViewController.pushViewController(vc, animated: true)
           

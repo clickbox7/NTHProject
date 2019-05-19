@@ -71,11 +71,6 @@ class NewsViewModel {
                              timestamp: item.publishedAt)
     }
     
-    var onGo: EmptyCallback?
-    
-    func go() {
-        onGo?()
-    }
     
     func goToDetails(item: News) {
         onGoToDetails?(item)

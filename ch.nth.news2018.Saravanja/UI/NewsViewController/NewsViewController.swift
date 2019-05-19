@@ -125,7 +125,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = viewModel.selectItem(at: indexPath.row) else { return }
         viewModel.goToDetails(item: item)
-        viewModel.go()
+       
         
         
     }
