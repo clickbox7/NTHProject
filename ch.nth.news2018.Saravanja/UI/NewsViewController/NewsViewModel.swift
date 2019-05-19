@@ -33,6 +33,7 @@ class NewsViewModel {
     private let newsService: NewsServiceProtocol
     var onError: EmptyCallback?
     var onComplete: EmptyCallback?
+    var onGoToDetails: ((News) -> Void)?
     
     private var news: [News] = [] 
     
@@ -70,13 +71,22 @@ class NewsViewModel {
                              timestamp: item.publishedAt)
     }
     
+    var onGo: EmptyCallback?
     
-    func selectItem(at index: Int,  onSelectedItem: ((News) -> Void)?) {
+    func go() {
+        onGo?()
+    }
+    
+    func goToDetails(item: News) {
+        onGoToDetails?(item)
+    }
+    
+    func selectItem(at index: Int) -> News? {
         guard let item = news[safe: index] else {
             print("Can't get item at index \(index)")
-            return
+            return nil
         }
-        onSelectedItem?(item)
+        return item
     }
     
     

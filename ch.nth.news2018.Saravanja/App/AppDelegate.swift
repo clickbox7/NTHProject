@@ -12,14 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var rootCoordinator: Coordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let storyboard = UIStoryboard(name: "NewsViewController", bundle: nil)
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
-        let navController = UINavigationController(rootViewController: rootViewController)
-        window?.rootViewController = navController
+        rootCoordinator = MainCoordinator()
+        rootCoordinator?.start()
+        
         return true
     }
 

@@ -25,8 +25,7 @@ class NewsDetailsViewController: UIViewController {
         style()
         viewModel.loadData()
         addGestureRecognizer()
-        print(viewModel.item.description)
-        print(viewModel.item.url)
+ 
     }
     
     private func addCallbacks() {
@@ -47,8 +46,6 @@ class NewsDetailsViewController: UIViewController {
             return
         }
         
-        
-        
         postImage.setImage(with: url)
         postTitle.text = data.title
         postAuthor.text = data.author
@@ -66,7 +63,7 @@ class NewsDetailsViewController: UIViewController {
         postTimestamp.font = UIFont.systemFont(ofSize: 10, weight: .light)
         postDescription.numberOfLines = 0
         postDescription.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        postUrl.textColor = .lightBlue
+        postUrl.textColor = .smokeyBlue
         
         postUrl.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         postUrl.numberOfLines = 0
@@ -82,8 +79,8 @@ class NewsDetailsViewController: UIViewController {
     @objc private func openOriginalArticle() {
         guard let link = postUrl.text, let url = URL(string: link) else {return }
         let urlRequest = URLRequest(url: url)
-        let wkWebViewViewController = WebViewViewController(request: urlRequest)
-        navigationController?.pushViewController(wkWebViewViewController, animated: true)
+        viewModel.showWebView(urlRequest: urlRequest)
+        
     }
-
+    
 }

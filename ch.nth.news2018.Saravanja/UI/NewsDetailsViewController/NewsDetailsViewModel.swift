@@ -12,6 +12,7 @@ class NewsDetailsViewModel {
     
     let item: News!
     var onComplete: ((Post) -> Void)?
+    var onShowWebView: ((URLRequest) -> Void)?
     
     
     init(item: News) {
@@ -58,5 +59,9 @@ class NewsDetailsViewModel {
         onComplete?(data)
         
   
+    }
+    
+    func showWebView(urlRequest: URLRequest) {
+        onShowWebView?(urlRequest)
     }
 }

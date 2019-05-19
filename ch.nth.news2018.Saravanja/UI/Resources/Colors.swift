@@ -10,6 +10,6 @@ import UIKit
 
 extension UIColor {
     
-    static let lightBlue = UIColor(red: 118/256, green: 141/256, blue: 176/256, alpha: 1)
+    static let smokeyBlue = UIColor(red: 118/256, green: 141/256, blue: 176/256, alpha: 1)
 
 }

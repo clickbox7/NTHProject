@@ -12,7 +12,6 @@ class NewsViewController: UIViewController {
     
     fileprivate enum Constants {
         static let newsCellId = "newsCell"
-        static let newsDetailsViewController = "NewsDetailsViewController"
     }
     
     @IBOutlet weak var newsTableView: UITableView!
@@ -23,7 +22,6 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addViewModel()
         createTableView()
         title = "News".local
         addCallbacks()
@@ -77,11 +75,6 @@ class NewsViewController: UIViewController {
         newsTableView.register(NewsTableViewCell.nib, forCellReuseIdentifier: Constants.newsCellId)
     }
     
-    private func addViewModel() {
-        
-        viewModel = NewsViewModel(newsService: ServiceLocator.factory.newsServiceProtocol)
-    }
-    
     private func addCallbacks() {
         
         viewModel.onError = { [weak self] in
@@ -98,14 +91,7 @@ class NewsViewController: UIViewController {
         }
         
     }
-    
-    private func showNewsDetails(with item: News) {
-        let storyboard = UIStoryboard(name: Constants.newsDetailsViewController, bundle: nil)
-        let postDetailsViewController = storyboard.instantiateViewController(withIdentifier: Constants.newsDetailsViewController) as! NewsDetailsViewController
-        let postDetailsViewModel = NewsDetailsViewModel(item: item)
-        postDetailsViewController.viewModel = postDetailsViewModel
-        navigationController?.pushViewController(postDetailsViewController, animated: true)
-    }
+
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -137,9 +123,11 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectItem(at: indexPath.row) { (item) in
-           self.showNewsDetails(with: item)
-        }
+        guard let item = viewModel.selectItem(at: indexPath.row) else { return }
+        viewModel.goToDetails(item: item)
+        viewModel.go()
+        
+        
     }
     
     
