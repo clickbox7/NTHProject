@@ -10,7 +10,7 @@ import Foundation
 
 enum ApiPaths {
     
-    static let keyword = "bitcoin"
+    static var keyword = "bitcoin"
     static let baseURL = "https://newsapi.org/v2/"
     static let apiKey = "0873f34a9c1344e291af05ce732ea2d2"
     

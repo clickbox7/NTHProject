@@ -48,8 +48,9 @@ class NewsViewModel {
     var onError: EmptyCallback?
     var onComplete: EmptyCallback?
     var onGoToDetails: ((News) -> Void)?
+    var inSearchMode = false
     
-    private var news: [News] = [] 
+    private var news: [News] = []
     
     init(newsService: NewsServiceProtocol) {
         self.newsService = newsService
@@ -113,7 +114,7 @@ class NewsViewModel {
             return
         }
         
-        self.loadData(type: type, page: self.pageNumber)
+        self.loadData(type: type, sorted: sorted, page: self.pageNumber)
     }
     
     private func loadData(type: NewsType = .all, sorted: NewsSorted = .date, page: Int) {
@@ -143,6 +144,19 @@ class NewsViewModel {
         case .failure:
             onError?()
         }
+    }
+    
+    func showFilterResults(keyword: String) {
+        
+        ApiPaths.keyword = keyword
+        
+        if keyword.isEmpty {
+            ApiPaths.keyword = "bitcoin"
+            loadData()
+        }
+        loadData()
+       
+        
     }
 
 }

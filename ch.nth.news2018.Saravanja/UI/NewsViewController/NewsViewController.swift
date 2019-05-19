@@ -16,6 +16,7 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var viewModel: NewsViewModel!
     private var refreshControl = UIRefreshControl()
@@ -28,8 +29,8 @@ class NewsViewController: UIViewController {
         viewModel.loadData()
         addPullToRefresh()
         style()
-
         
+        searchBar.delegate = self
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
@@ -91,7 +92,7 @@ class NewsViewController: UIViewController {
         }
         
     }
-
+    
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -108,7 +109,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return viewModel.itemCount
         case 1:
-           return viewModel.itemCount
+            return viewModel.itemCount
         default:
             break
             
@@ -125,10 +126,24 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = viewModel.selectItem(at: indexPath.row) else { return }
         viewModel.goToDetails(item: item)
-       
-        
         
     }
+    
+}
+
+extension NewsViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+       
+        guard let keyword = searchBar.text else { return }
+        
+        viewModel.showFilterResults(keyword: keyword)
+        newsTableView.reloadData()
+    
+        
+    }
+    
     
     
 }
