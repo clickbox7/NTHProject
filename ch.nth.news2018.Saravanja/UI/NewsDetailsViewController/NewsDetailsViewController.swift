@@ -25,7 +25,7 @@ class NewsDetailsViewController: UIViewController {
         style()
         viewModel.loadData()
         addGestureRecognizer()
- 
+        
     }
     
     private func addCallbacks() {

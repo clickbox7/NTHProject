@@ -42,9 +42,7 @@ class WebViewViewController: UIViewController {
     }
 }
 
-extension WebViewViewController: UIWebViewDelegate {
-    
-}
+
 
 
 
