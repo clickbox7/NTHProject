@@ -105,15 +105,6 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            return viewModel.itemCount
-        case 1:
-            return viewModel.itemCount
-        default:
-            break
-            
-        }
         return viewModel.itemCount
     }
     
