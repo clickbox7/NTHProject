@@ -24,13 +24,11 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createTableView()
-        title = "News".local
         addCallbacks()
         viewModel.loadData()
         addPullToRefresh()
         style()
         
-        searchBar.delegate = self
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
@@ -38,7 +36,6 @@ class NewsViewController: UIViewController {
         case 0:
             viewModel.loadData()
         case 1:
-            print("selected index 1")
             viewModel.loadData(type: .top, sorted: .popularity)
         default:
             break
@@ -47,6 +44,8 @@ class NewsViewController: UIViewController {
         
     }
     private func style() {
+        title = "News".local
+        searchBar.delegate = self
         segmentedControl.tintColor = .gray
         segmentedControl.backgroundColor = .white
         segmentedControl.setTitle("News".local, forSegmentAt: 0)
@@ -137,15 +136,13 @@ extension NewsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text else { return }
         viewModel.showFilterResults(keyword: keyword)
-        newsTableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let keyword = searchBar.text else { return }
         searchBar.becomeFirstResponder()
         if keyword.isEmpty {
-            //viewModel.loadData()
-            print("viewmodel.loadData()")
+            viewModel.loadData()
         }
     }
     

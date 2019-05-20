@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         rootCoordinator = MainCoordinator()
-        rootCoordinator?.start()
+        _ = rootCoordinator?.start()
         
         return true
     }

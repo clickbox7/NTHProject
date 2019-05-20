@@ -16,7 +16,7 @@ extension Date {
 }
     
     func timeAgoDisplay(date: Date) -> String {
-        
+        //TODO: finish implementation of this method
         return ""
     }
 

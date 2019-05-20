@@ -31,13 +31,14 @@ struct News: Codable {
     let content: String?
     
     
+    //TODO: convert string date format
 //    var date: String {
 //        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//        guard let date = dateFormatter.date(from: publishedAt) else { return nil }
-//        return date
-//    }
-    
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+//        let date = dateFormatter.date(from: publishedAt)
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        return  dateFormatter.string(from: date!)
+//   }
     
     enum CodingKeys: String, CodingKey {
         case source
