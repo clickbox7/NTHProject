@@ -135,14 +135,24 @@ extension NewsViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text else { return }
-        viewModel.showFilterResults(keyword: keyword)
+        viewModel.showFilterResults(keyword: keyword, type: .all)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let keyword = searchBar.text else { return }
         searchBar.becomeFirstResponder()
-        if keyword.isEmpty {
-            viewModel.showFilterResults(keyword: keyword)
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            guard let keyword = searchBar.text else { return }
+            if keyword.isEmpty {
+                viewModel.showFilterResults(keyword: keyword, type: .all)
+            }
+        case 1:
+            guard let keyword = searchBar.text else { return }
+            if keyword.isEmpty {
+                viewModel.showFilterResults(keyword: keyword, type: .top)
+            }
+        default:
+            break
         }
     }
     

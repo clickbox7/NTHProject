@@ -146,14 +146,14 @@ class NewsViewModel {
         }
     }
     
-    func showFilterResults(keyword: String) {
+    func showFilterResults(keyword: String, type: NewsType) {
         
         if !keyword.isEmpty {
             ApiPaths.keyword =  "\(keyword)"
-            self.loadData()
+            self.loadData(type: type, sorted: .date)
         } else {
             ApiPaths.keyword = "bitcoin"
-            self.loadData()
+            self.loadData(type: .top, sorted: .popularity)
         }
         
         
