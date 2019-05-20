@@ -60,34 +60,34 @@ class NewsViewModel {
     }
     
     func itemAt(_ index: Int) -> NewsCellModel? {
-        guard let item = news[safe: index] else {
+        guard let article = news[safe: index] else {
             print("Can't get item at index \(index)")
             return nil
         }
         
         let author: String = {
-            guard let author = item.author, !author.isEmpty else {
+            guard let author = article.author, !author.isEmpty else {
                 return "Unknown author"
             }
             return author
         }()
         
         let image: PlaceholderImage = {
-            guard let imageURL = item.urlToImage, let url = URL(string: imageURL) else {
+            guard let imageURL = article.urlToImage, let url = URL(string: imageURL) else {
                 return .placeholder(#imageLiteral(resourceName: "blackNoProfile"))
             }
             return .real(url)
         }()
    
-        return NewsCellModel(title: item.title,
+        return NewsCellModel(title: article.title,
                              author: author,
                              image: image,
-                             timestamp: item.publishedAt)
+                             timestamp: article.publishedAt)
     }
     
     
-    func goToDetails(item: News) {
-        onGoToDetails?(item)
+    func goToDetails(article: News) {
+        onGoToDetails?(article)
     }
     
     func selectItem(at index: Int) -> News? {

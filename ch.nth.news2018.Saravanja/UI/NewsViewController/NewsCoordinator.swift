@@ -23,8 +23,8 @@ class NewsCoordinator: Coordinator {
         let newsViewModel = NewsViewModel(newsService: ServiceLocator.factory.newsServiceProtocol)
         newsViewController.viewModel = newsViewModel
         
-        newsViewModel.onGoToDetails = { [weak self] item in
-            guard let vc = self?.createNewsDetails(item: item) else { return }
+        newsViewModel.onGoToDetails = { [weak self] article in
+            guard let vc = self?.createNewsDetails(article: article) else { return }
             self?.parentCoordinator?.rootViewController.pushViewController(vc, animated: true)
           
         }
@@ -32,9 +32,9 @@ class NewsCoordinator: Coordinator {
         return newsViewController
     }
     
-    private func createNewsDetails(item: News) -> UIViewController {
+    private func createNewsDetails(article: News) -> UIViewController {
         let newsDetailsVC = NewsDetailsViewController.instance()
-        let newsDetailsVM = NewsDetailsViewModel(item: item)
+        let newsDetailsVM = NewsDetailsViewModel(article: article)
         
         newsDetailsVM.onShowWebView = { [weak self] urlRequest in
             guard let vc = self?.createWebView(request: urlRequest) else { return }

@@ -10,13 +10,13 @@ import Foundation
 
 class NewsDetailsViewModel {
     
-    let item: News!
+    let article: News!
     var onComplete: ((Post) -> Void)?
     var onShowWebView: ((URLRequest) -> Void)?
     
     
-    init(item: News) {
-        self.item = item
+    init(article: News) {
+        self.article = article
     }
     
     struct Post {
@@ -54,8 +54,8 @@ class NewsDetailsViewModel {
     
     func loadData() {
         
-        guard let item = item else { return }
-        let data = postData(item: item)
+        guard let article = article else { return }
+        let data = postData(item: article)
         onComplete?(data)
         
   
