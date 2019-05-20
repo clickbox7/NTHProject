@@ -78,7 +78,7 @@ class NewsViewModel {
             }
             return .real(url)
         }()
-        
+   
         return NewsCellModel(title: item.title,
                              author: author,
                              image: image,

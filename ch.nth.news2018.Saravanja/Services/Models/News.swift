@@ -27,18 +27,15 @@ struct News: Codable {
     let description: String?
     let url: String
     let urlToImage: String?
-    let publishedAt: String
+    let publishedAt: String 
     let content: String?
     
     
-    //TODO: convert string date format
-//    var date: String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
-//        let date = dateFormatter.date(from: publishedAt)
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        return  dateFormatter.string(from: date!)
-//   }
+    //TODO: convert string date format to date object
+  //  var date: Date? {
+       // guard let date = publishedAt.toDate() else { return nil }
+      //  return date
+   //}
     
     enum CodingKeys: String, CodingKey {
         case source
