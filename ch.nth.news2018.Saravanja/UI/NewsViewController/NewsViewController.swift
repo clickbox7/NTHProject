@@ -142,7 +142,7 @@ extension NewsViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else { return }
         searchBar.becomeFirstResponder()
         if keyword.isEmpty {
-            viewModel.loadData()
+            viewModel.showFilterResults(keyword: keyword)
         }
     }
     
