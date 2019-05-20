@@ -41,7 +41,6 @@ class NewsService: NewsServiceProtocol {
                 print("Unable to decode json")
                 return completion(.failure)
             }
-           //let decoded = try! decoder.decode(NewsResponse.self, from: recievedData)
             completion(.success(decoded))
         }
         

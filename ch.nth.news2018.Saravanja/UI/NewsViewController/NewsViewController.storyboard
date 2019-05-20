@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-1O-qKE">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U7J-53-3FO">
@@ -33,7 +33,7 @@
                                 </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-n9-0Gi">
-                                <rect key="frame" x="0.0" y="56" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="52" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -44,8 +44,8 @@
                             <constraint firstItem="FhJ-TL-HST" firstAttribute="bottom" secondItem="pxF-1O-qKE" secondAttribute="bottom" id="8Vt-iz-fx5"/>
                             <constraint firstItem="FhJ-TL-HST" firstAttribute="trailing" secondItem="pxF-1O-qKE" secondAttribute="trailing" id="B6A-eD-uQf"/>
                             <constraint firstItem="U7J-53-3FO" firstAttribute="leading" secondItem="FhJ-TL-HST" secondAttribute="leading" id="F9C-nh-a9v"/>
-                            <constraint firstItem="6Ii-n9-0Gi" firstAttribute="top" secondItem="U7J-53-3FO" secondAttribute="bottom" constant="8" id="JU5-cA-JgT"/>
-                            <constraint firstItem="pxF-1O-qKE" firstAttribute="top" secondItem="6Ii-n9-0Gi" secondAttribute="bottom" constant="8" id="T2I-gK-wZ7"/>
+                            <constraint firstItem="6Ii-n9-0Gi" firstAttribute="top" secondItem="U7J-53-3FO" secondAttribute="bottom" constant="4" id="JU5-cA-JgT"/>
+                            <constraint firstItem="pxF-1O-qKE" firstAttribute="top" secondItem="6Ii-n9-0Gi" secondAttribute="bottom" constant="4" id="T2I-gK-wZ7"/>
                             <constraint firstItem="pxF-1O-qKE" firstAttribute="leading" secondItem="FhJ-TL-HST" secondAttribute="leading" id="i4L-Ho-oYo"/>
                             <constraint firstItem="6Ii-n9-0Gi" firstAttribute="leading" secondItem="FhJ-TL-HST" secondAttribute="leading" id="oIO-ea-HiG"/>
                         </constraints>

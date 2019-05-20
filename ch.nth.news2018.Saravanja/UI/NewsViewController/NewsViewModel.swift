@@ -48,7 +48,6 @@ class NewsViewModel {
     var onError: EmptyCallback?
     var onComplete: EmptyCallback?
     var onGoToDetails: ((News) -> Void)?
-    var inSearchMode = false
     
     private var news: [News] = []
     
@@ -99,7 +98,6 @@ class NewsViewModel {
         return item
     }
     
-    
     private var isAllContentLoaded = false
     private var pageNumber = 1
     
@@ -134,8 +132,6 @@ class NewsViewModel {
             guard let articles = nonNilArticles else { return }
             if self.pageNumber == 1 {
                 self.news = articles
-                print(items.totalResults)
-                print(articles.count)
             } else {
                 self.news.append(contentsOf: articles)
             }
@@ -153,7 +149,7 @@ class NewsViewModel {
     func showFilterResults(keyword: String) {
         
         if !keyword.isEmpty {
-            ApiPaths.keyword = keyword
+            ApiPaths.keyword =  "\(keyword)"
             self.loadData()
         } else {
             ApiPaths.keyword = "bitcoin"

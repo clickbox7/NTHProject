@@ -51,6 +51,7 @@ class NewsViewController: UIViewController {
         segmentedControl.backgroundColor = .white
         segmentedControl.setTitle("News".local, forSegmentAt: 0)
         segmentedControl.setTitle("Top", forSegmentAt: 1)
+        newsTableView.keyboardDismissMode = .onDrag
         view.backgroundColor = .white
     }
     
@@ -138,4 +139,14 @@ extension NewsViewController: UISearchBarDelegate {
         viewModel.showFilterResults(keyword: keyword)
         newsTableView.reloadData()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let keyword = searchBar.text else { return }
+        searchBar.becomeFirstResponder()
+        if keyword.isEmpty {
+            //viewModel.loadData()
+            print("viewmodel.loadData()")
+        }
+    }
+    
 }
